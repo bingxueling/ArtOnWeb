@@ -9,7 +9,7 @@
 
 // 获取屏幕信息, 初始化图库索引及图片数
 var cw = $(window).width();
-let galleryIndex = 0;
+var galleryIndex = 0;
 const galleryLength = myData.gallery.length;
 
 // 设置头部的设计师信息, 返回值为HTML标签字符串

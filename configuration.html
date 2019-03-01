@@ -110,7 +110,7 @@
                 };
             };
             var bg = $('#profile-bg').val();
-            var jsData = `let myData={designer:{name:'${name}',phone:'${phone}',tag:[${tag}],bg:'${bg}'},gallery:[${dataGallery}]}`;
+            var jsData = `var myData={designer:{name:'${name}',phone:'${phone}',tag:[${tag}],bg:'${bg}'},gallery:[${dataGallery}]}`;
             console.log(jsData);
             var jsFile = new File([jsData], "data.js", {type: "text/plain;charset=utf-8"});
             saveAs(jsFile);

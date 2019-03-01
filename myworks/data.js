@@ -6,7 +6,7 @@
 */
 
 
-let myData = {
+var myData = {
     "designer": {
         "name": "bingxueling",
         "phone": "122-0987-3456",
