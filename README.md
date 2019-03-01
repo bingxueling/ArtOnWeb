@@ -1,6 +1,10 @@
 # OnlineDesign(设计在线)
 A template to help designers quickly create personal work website.
-这是一个可以帮助设计师快速创建个人作品网站的模板程序。虽然OnlineDesign是一个静态网页，但通过js的强大能力实现了资源的动态加载，即便你拥有大量的作品，也不会影响网站打开的速度。访问此链接预览页面效果：https://bingxueling.github.io/OnlineDesign/
+这是一个可以帮助设计师快速创建个人作品网站的模板程序。虽然OnlineDesign是一个静态网页，但通过js的强大能力实现了资源的动态加载，即便你拥有大量的作品，也不会影响网站打开的速度。访问下方链接预览页面效果：
+https://bingxueling.github.io/OnlineDesign/
+
+国内设计师可以访问此链接
+http://www.wulihub.com.cn/go/qgMrpQ/index.html
 
 使用步骤：
 1.下载项目到本地并解压文件。
