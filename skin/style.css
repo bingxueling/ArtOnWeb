@@ -1,0 +1,229 @@
+/*全局属性*/
+*{
+    /*去除边距*/
+    margin: 0 ;
+    padding: 0;
+}
+
+body, html {
+    height:100%;
+    font-size: 100%;
+    background-color: #F5F5F5;
+}
+
+/*日志*/
+#log {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+}
+
+/*设计师资料*/
+#profile {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #1E2025;
+}
+
+#my-name {
+    color:#FFFFFF;
+    margin-bottom: 0.8rem;
+}
+
+#my-tag span{
+    color:#FFFFFF;
+    margin: 0.2rem 0.4rem;
+    display: inline-block;
+}
+
+#my-phone {
+    display: inline-block;
+    color:#FFFFFF;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: opacity .15s;
+}
+
+#my-phone:hover {
+    opacity:0.5;
+    /*filter: drop-shadow(0 0.8rem 0.4rem #000000);*/
+}
+
+#my-phone:active {
+    /*filter: none;*/
+    opacity:0.2;
+}
+
+#my-phone img {
+    height: 0.8rem;
+    vertical-align: baseline;
+    margin-right: 0.1rem;
+}
+
+/*作品展示*/
+#content {
+    position: relative;
+    padding: 0.6rem 0.6rem;
+}
+
+#content .decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12rem;
+    background-color: #1E2025;
+}
+
+#gallery {
+    /*margin: 0 0.4rem;*/
+}
+.gallery-item {
+    width: 33.33%;
+    /*max-height: 60rem;*/
+    padding: 0.6rem;
+    /*overflow: hidden;*/
+    webkit-box-sizing: border-box;
+           box-sizing: border-box;
+}
+
+.gallery-item img{
+    width: 100%;
+    display: block;
+    border-radius: 0.667rem;
+    background-color: #E6E6E6;
+    transition: transform .15s, box-shadow .3s, filter .15s, ;
+    -webkit-transition: -webkit-transform .3s, box-shadow .3s, filter .3s;
+    /*border: 1px solid #dddddd;*/
+    /*box-shadow: 0 2px 6px #aaaaaa;*/
+}
+
+.gallery-item img:hover {
+    transform: translateY(-0.4rem);
+    -webkit-transform: translateY(-0.4rem);
+    box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.4);
+    /*-webkit-filter: drop-shadow(0 0 4px 1 rgba(0, 0, 0, 0.5));*/
+    cursor:pointer;
+}
+
+.gallery-item img:active {
+    filter: contrast(130%) brightness(0.5);
+}
+
+/*适配小窗口*/
+@media screen and (max-width: 900px) {
+    .gallery-item {
+        width: 50%;
+    }
+}
+
+/*适配移动端*/
+@media screen and (max-width: 400px) {
+    .gallery-item {
+        width: 100%;
+    }
+}
+
+/*底部logo*/
+#logo {
+    position: fixed;
+    bottom: 0.8rem;
+    right: 1.6rem;
+    text-align: right;
+}
+
+#logo a {
+    text-decoration: none;
+}
+
+.logo-QR {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 0.667rem;
+    margin-bottom: 0.8rem;
+}
+
+.logo-QR p{
+    color: #FFFFFF;
+    padding-bottom: 0.4rem;
+}
+
+.logo-QR img {
+    width: 11.47rem;
+    height: 11.47rem;
+}
+
+.logo-name {
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    -webkit-text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    cursor:help;
+}
+
+/*字体样式定义*/
+.title {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing:0.04rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing:0.04rem;
+}
+
+.text-body {
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 300;
+    letter-spacing:0.04rem;
+}
+
+.caption {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing:0.04rem;
+}
+
+/*动画定义*/
+.animate-up {
+    /*动画有延时，所以需要在样式表中放置初始化状态，而不能在执行开始的时候*/
+    -webkit-transform: translateY(200px);
+    transform: translateY(80px);
+    opacity: 0;
+    -webkit-animation: moveUp 0.65s ease forwards;
+    animation: moveUp 0.65s ease forwards;
+}
+@-webkit-keyframes moveUp {
+    0% {}
+    100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+@keyframes moveUp {
+    0% {}
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-delay-1 {
+    animation-delay:0.1s;
+}
+.animate-delay-2 {
+    animation-delay:0.2s;
+}
+.animate-delay-3 {
+    animation-delay:0.3s;
+}
+.animate-delay-4 {
+    animation-delay:0.4s;
+}
+
+

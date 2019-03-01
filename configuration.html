@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+    <title>配置工具-瀑布流作品集</title>
+    <!-- 定义样式 -->
+    <style type="text/css">
+        /*全局属性*/
+        body, html {
+            height:100%;
+            font-size: 100%;
+        }
+        input {
+            width: 20rem;
+            height: 2rem;
+            background-color: #FFFFFF;
+            border: 1px solid #E5E5E5;
+        }
+        .drop-zone {
+            width: 26rem;
+            height: 14rem;
+            border: 4px dashed #2D3DE0;
+            overflow:auto;
+        }
+        .file-list li img {
+            width:6rem;
+        }
+        .warning {
+            color: #E9002C;
+        }
+        .button {
+            width: 20rem;
+            height: 4rem;
+            font-size: 1rem;
+            margin-bottom: 5rem;
+        }
+    </style> 
+</head>
+<body>
+<form>
+    <h2>配置个人信息区:</h2>
+    <h3 class="warning">注:请确保属性格式正确,不需要的属性可以跳过.</h3>
+    <p>你的名字：<input id="profile-name" name="name" type="text" placeholder="设计小超人"></p>
+    <p>你的电话：<input id="profile-phone" name="phone" type="text" placeholder="666-8888-8888"></p>
+    <p>特长标签,多标签用(;)隔开：<input id="profile-tag" name="tag" type="text" placeholder="#就是帅;#就是美;#切图嗖嗖快"></p>
+    <p>信息区背景色：<input id="profile-bg" name="bg" type="text" placeholder="#000000"></p>
+    <h2>将作品拖到下方虚线框中:</h2>
+    <h3 class="warning">注:作品必须拷贝到"myworks"文件下, 否则配置将不会生效:</h3>
+    <div class="drop-zone">
+        <ol class="file-list"></ol>
+    </div>
+    <h3 class="warning">注:点击按钮生成配置文件, 配置文件同样需要放在"myworks"文件下</h3>
+    <button id="profile-button" class="button" type="button">生成配置文件</button>
+</form> 
+<!-- 引用库 -->
+<script type="text/javascript" charset="UTF-8" src="js/lib/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/lib/FileSaver.min.js"></script>
+<!-- 核心逻辑 -->
+<script type="text/javascript" charset="UTF-8">
+    $(function() {
+        //需要保存的文本内容
+        var dataGallery="";
+        //定义图片拖拽区功能
+        $(".drop-zone").on("drop", function (event) {
+            console.log("drop");
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).css("border", "");
+            var dataTransfer = event.originalEvent.dataTransfer;
+            console.log(dataTransfer);
+            if(dataTransfer && dataTransfer.files.length) {
+                $.each(dataTransfer.files, function(i, file) {
+                    if (file.type.match('image.*')) {
+                        var imgSrc = "myworks/" + file.name;
+                        $(".file-list").append($("<li>").append($("<img/>").attr("src", imgSrc)).append(file.name));
+                        var image = new Image();
+                        image.onload=function(){
+                            console.log("第" + i + "image.width" + image.width);
+                            console.log("第" + i + "image.height" + image.height);
+                            dataGallery += `{src:"myworks/${file.name}",w:${image.width},h:${image.height}},`;
+                            image = null;
+                        };
+                        image.src = imgSrc;
+                    }
+                });
+            }
+        });
+        $(".drop-zone").on("dragover", function (event) {
+            console.log("dragover");
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).css("border", "4px dashed #E9002C")
+        });
+        $(".drop-zone").on("dragleave", function (event) {
+            console.log("dragleave");
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).css("border", "");
+        });
+        //绑定按钮点击
+        $("#profile-button").on("click", function(){
+            var name = $("#profile-name").val();
+            var phone = $("#profile-phone").val();
+            var tagArray = $("#profile-tag").val().split(";"), tag;
+            if (tagArray.length > 0) {
+                tag = '"' + tagArray[0] + '"';
+                for (var i = 1; i < tagArray.length; i++) {
+                    tag += ',"' + tagArray[i] + '"';
+                };
+            };
+            var bg = $('#profile-bg').val();
+            var jsData = `let myData={designer:{name:'${name}',phone:'${phone}',tag:[${tag}],bg:'${bg}'},gallery:[${dataGallery}]}`;
+            console.log(jsData);
+            var jsFile = new File([jsData], "data.js", {type: "text/plain;charset=utf-8"});
+            saveAs(jsFile);
+        });
+    });
+</script>
+</body>
+</html>
