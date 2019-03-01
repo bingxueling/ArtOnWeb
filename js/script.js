@@ -43,11 +43,11 @@ function getProfile() {
 	};
 }
 
-// 瀑布流列表获取image的方法, 返回8个标准的瀑布流项, 返回值为HTML标签字符串
+// 瀑布流列表获取image的方法, 返回6个标准的瀑布流项, 返回值为HTML标签字符串
 function getImages() {
 	var gallery = myData.gallery;
 	var galleryHtml = "";
-	for (var i = 0; i < 8 & galleryIndex < galleryLength; i++) {
+	for (var i = 0; i < 6 && galleryIndex < galleryLength; i++) {
 		// 使用字符模板返回瀑布流单项, 动画延时采用随机算法
 		galleryHtml += `<div class="gallery-item animate-up animate-delay-${Math.floor(Math.random()*4)+1}"><img src="${gallery[galleryIndex++].src}"/></div>`;
 	};
