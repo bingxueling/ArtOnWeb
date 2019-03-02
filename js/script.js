@@ -1,5 +1,5 @@
 /*!
- * 瀑布流简历的核心逻辑.
+ * artonweb的核心逻辑.
  * 包括使用数据类生成内容标签的方法,瀑布流生成,探底数据刷新和看图浮层配置.
  * 本项目使用了jquery,masonry,imagesloaded,photoswipe和FileSaver开源项目.
  * MIT License
@@ -19,7 +19,7 @@ function getProfile() {
 	if (profile.name) {
 		profileHtml += `<h1 id="my-name" class="title">${profile.name}</h1>`;
 		// 修改页面的title
-		$('head title').text(profile.name + "的作品集");
+		$('head title').text(profile.name + "-Art on web");
 	};
 	profileHtml += '<p id="my-tag" class="text-body">';
 	for (var i = 0; i < profile.tag.length; i++) {

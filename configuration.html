@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
-    <title>配置工具-瀑布流作品集</title>
+    <title>配置工具-Art on web</title>
     <!-- 定义样式 -->
     <style type="text/css">
         /*全局属性*/
@@ -40,18 +40,18 @@
 <body>
 <form>
     <h2>配置个人信息区:</h2>
-    <h3 class="warning">注:请确保属性格式正确,不需要的属性可以跳过.</h3>
+    <h3 class="warning">注:请确保属性格式正确,不需要的属性可省略.</h3>
     <p>你的名字：<input id="profile-name" name="name" type="text" placeholder="设计小超人"></p>
     <p>你的电话：<input id="profile-phone" name="phone" type="text" placeholder="666-8888-8888"></p>
     <p>特长标签,多标签用(;)隔开：<input id="profile-tag" name="tag" type="text" placeholder="#就是帅;#就是美;#切图嗖嗖快"></p>
     <p>信息区背景色：<input id="profile-bg" name="bg" type="text" placeholder="#000000"></p>
     <h2>将作品拖到下方虚线框中:</h2>
-    <h3 class="warning">注:作品必须拷贝到"myworks"文件下, 否则配置将不会生效:</h3>
+    <h3 class="warning">注:所添加的作品必须拷贝到"myworks"文件下:</h3>
     <div class="drop-zone">
         <ol class="file-list"></ol>
     </div>
-    <h3 class="warning">注:点击按钮生成配置文件, 配置文件同样需要放在"myworks"文件下</h3>
-    <button id="profile-button" class="button" type="button">生成配置文件</button>
+    <h3 class="warning">注:data.js也要放在"myworks"文件下</h3>
+    <button id="profile-button" class="button" type="button">生成data.js配置文件</button>
 </form> 
 <!-- 引用库 -->
 <script type="text/javascript" charset="UTF-8" src="js/lib/jquery-3.3.1.min.js"></script>
