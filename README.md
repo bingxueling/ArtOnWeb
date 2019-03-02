@@ -1,6 +1,6 @@
 # ArtOnWeb(艺术在线)
 A template to help designers quickly create personal work website.  
-这是一个可以帮助设计师快速（最快5分钟内搞定）创建个人作品网站的模板程序。虽然ArtOnWeb生成的是静态网站，但通过js的强大能力实现了资源的动态加载，即便你拥有大量的作品，也不会影响网站打开的速度。
+这是一个可以帮助设计师快速（最快5分钟）创建个人作品网站的模板程序。虽然ArtOnWeb生成的是静态网站，但通过js的强大能力实现了资源的动态加载，即便你拥有大量的作品，也不会影响网站打开的速度。
 
 样板效果：https://bingxueling.github.io/ArtOnWeb/  
 样板效果(中国境内): http://www.wulihub.com.cn/go/qgMrpQ/index.html
