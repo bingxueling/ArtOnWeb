@@ -75,6 +75,7 @@ function initOverlayout() {
 			bgOpacity: 0.8,
 			closeOnScroll: false,
 			loop: false,
+			history: false,
 			// 浮层动画, 如果getThumbBoundsFn性能与稳定性不加, 需要重新使用showHideOpacity
 			showHideOpacity: false,
 			getThumbBoundsFn: function(index) {
