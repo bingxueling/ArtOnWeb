@@ -10,6 +10,7 @@
         body, html {
             height:100%;
             font-size: 100%;
+            padding: 0 0.5rem;
         }
         input {
             width: 20rem;
@@ -31,27 +32,28 @@
         }
         .button {
             width: 20rem;
-            height: 4rem;
+            height: auto;
             font-size: 1rem;
-            margin-bottom: 5rem;
+            margin-bottom: 1rem;
         }
     </style> 
 </head>
 <body>
 <form>
-    <h2>配置个人信息区:</h2>
-    <h3 class="warning">注:请确保属性格式正确,不需要的属性可省略.</h3>
-    <p>你的名字：<input id="profile-name" name="name" type="text" placeholder="设计小超人"></p>
-    <p>你的电话：<input id="profile-phone" name="phone" type="text" placeholder="666-8888-8888"></p>
-    <p>特长标签,多标签用(;)隔开：<input id="profile-tag" name="tag" type="text" placeholder="#就是帅;#就是美;#切图嗖嗖快"></p>
-    <p>信息区背景色：<input id="profile-bg" name="bg" type="color" value="#1E2025"></p>
-    <h2>将作品拖到下方虚线框中:</h2>
-    <h3 class="warning">注:所添加的作品必须拷贝到"myworks"文件下:</h3>
+    <h2>1.配置个人信息区 • Personal Information:</h2>
+    <h4 class="warning"><p>注: 请确保属性格式正确,不需要的属性可省略</p><p>Note: Please ensure that the properties are formatted correctly and the unneeded properties can be omitted</p></h4>
+    <p>你的名字 • Name：<input id="profile-name" name="name" type="text" placeholder="设计小超人"></p>
+    <p>你的电话 • Phone：<input id="profile-phone" name="phone" type="text" placeholder="666-8888-8888"></p>
+    <p>标签(多标签用;隔开) • Tags(separated by ;)：<input id="profile-tag" name="tag" type="text" placeholder="#就是帅;#就是美;#切图嗖嗖快"></p>
+    <p>信息区背景色 • Bg color of the information：<input id="profile-bg" name="bg" type="color" value="#1E2025"></p>
+    <h2>2.将作品拖到下方虚线框中 • Drag the work to the dotted box below:</h2>
+    <h4 class="warning"><p>注: 作品必须拷贝到"myworks"文件下, 支持png,jpge,gif</p><p>Note: The work must be copied to the "myworks" file, support png, jpge, gif</p></h4>
     <div class="drop-zone">
         <ol class="file-list"></ol>
     </div>
-    <h3 class="warning">注:data.js也要放在"myworks"文件下</h3>
-    <button id="profile-button" class="button" type="button">生成data.js配置文件</button>
+    <h2>3.保存配置文件 • Save configuration file:</h2>
+    <h4 class="warning"><p>注: "data.js"也要拷贝到"myworks"文件下</p><p>Note: "data.js" should also be copied to the "myworks" file</p></h4>
+    <button id="profile-button" class="button" type="button"><p>生成"data.js"配置文件</p><p>Generate a "data.js" configuration file</p></button>
 </form> 
 <!-- 引用库 -->
 <script type="text/javascript" charset="UTF-8" src="js/lib/jquery-3.3.1.min.js"></script>
