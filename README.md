@@ -8,8 +8,8 @@ http://www.wulihub.com.cn/go/qgMrpQ/index.html
 
 ### 如何使用:  
 1. 下载项目源码并解压。
-2. 将设计效果图复制到「myworks文件夹」中，支持png、jpg和gif格式。
-3. 使用浏览器打开「configuration.html」，参照页面引导生成data.js配置文件。
+2. 将设计效果图复制到「myworks」文件夹中，支持png、jpg和gif格式。
+3. 使用浏览器打开「configuration.html」，参照页面引导生成「data.js」文件，然后将「data.js」文件也复制到「myworks文件夹」中。
 4. 将AOW全部文件部署到github等静态网站托管平台，完成！👏👏👏
 * __㊙️建议使用压缩工具对图片进行压缩__  
 
@@ -35,8 +35,8 @@ http://www.wulihub.com.cn/go/qgMrpQ/index.html
 
 ### How to use:  
 1. Download the project source and unzip it.
-2. Copy your design to the "myworks folder", support png, jpg and gif formats.
-3. Use a browser to open "configuration.html" and refer to the page to generate a data.js configuration file.
+2. Copy your design to the "myworks" folder, support png, jpg and gif formats.
+3. Use a browser to open "configuration.html" and refer to the page to generate a "data.js" file, Then copy the "data.js" file to the "myworks folder" as well.
 4. Deploy all AOW files to a static website hosting platform such as github, and complete! 👏👏👏
 * __㊙️It is recommended to compress the image using the compression tool__
 
