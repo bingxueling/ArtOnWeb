@@ -19,7 +19,7 @@ http://www.wulihub.com.cn/go/qgMrpQ/index.html
 [免费+设计-收集免费设计工具和资源](http://www.wulihub.com.cn/go/WwB6pq/index.html)  
 [bingxueling的UI作品](http://www.wulihub.com.cn/go/QoBGXW/index.html)  
 [YingFengYing的UI作品](http://www.wulihub.com.cn/go/J6e58Q/index.html)  
-[风穷的乐趣](http://www.wulihub.com.cn/go/JMBdEq/index.html)  
+[风穷的乐趣-3D打印作品展](http://www.wulihub.com.cn/go/JMBdEq/index.html)  
 [冰的摄影集](http://www.wulihub.com.cn/go/QKjOZW/index.html)  
 
 __©源码中"作品样图"仅用作样例展示，版权归原作者或所属公司__
@@ -47,7 +47,7 @@ http://www.wulihub.com.cn/go/qgMrpQ/index.html
 [Free+Design-Collect free design tools and resources](http://www.wulihub.com.cn/go/WwB6pq/index.html) 
 [bingxueling'UI design](http://www.wulihub.com.cn/go/QoBGXW/index.html)  
 [YingFengYing'UI design](http://www.wulihub.com.cn/go/J6e58Q/index.html)  
-[Windy hobby](http://www.wulihub.com.cn/go/JMBdEq/index.html)  
+[Windy hobby-3D printing exhibition](http://www.wulihub.com.cn/go/JMBdEq/index.html)  
 [bing's photography](http://www.wulihub.com.cn/go/QKjOZW/index.html)  
 
 __©The "work sample" in the source code is only used as a sample display, and the copyright belongs to the original author or company.__
