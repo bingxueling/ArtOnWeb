@@ -28,13 +28,20 @@ function getProfile() {
 		};
 	};
 	profileHtml += '</p>';
+	// SVG内嵌到Html中, 可进行动态灌色
 	if (profile.phone) {
-		profileHtml += `<a id="my-phone" class="subtitle" href="tel:${profile.phone}"><img src="skin/icon_phone.svg"/>${profile.phone}</a>`;
+		profileHtml += `
+			<a id="my-phone" class="subtitle" href="tel:${profile.phone}">
+				<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+					<path d="M30.795 32.994l-2.3 7.498a34.912 34.912 0 0 1-12.804-8.298c-4.001-4-6.702-8.399-8.302-12.798l8.611-2.2V2.2L3.187 0c-6.301 9.898-3.1 25.395 8.203 36.593C22.593 47.99 37.997 51.09 48 44.79l-2-11.797H30.794z" fill-rule="evenodd"/>
+				</svg>${profile.phone}
+			</a>
+		`;
 	};
 
 	if (profile.bg) {
-		$('#profile').css("background-color", `${profile.bg}`);
-		$('#content .decoration').css("background-color", `${profile.bg}`);
+		//通过js修改styleSheets中:root的样式表
+		document.styleSheets[0].cssRules[0].style.setProperty('--color-primary-background', profile.bg);
 	};
 
 	if (profileHtml) {
@@ -48,8 +55,18 @@ function getImages() {
 	var gallery = myData.gallery;
 	var galleryHtml = "";
 	for (var i = 0; i < 6 && galleryIndex < galleryLength; i++) {
-		// 使用字符模板返回瀑布流单项, 动画延时采用随机算法
-		galleryHtml += `<div class="gallery-item animate-up animate-delay-${Math.floor(Math.random()*4)+1}"><img src="${gallery[galleryIndex++].src}"/></div>`;
+		// 使用字符模板返回瀑布流单项, 动画延时采用随机算法, img的高度使用图片尺寸数据动态计算
+		var imgHeight = gallery[galleryIndex].h / gallery[galleryIndex].w * 100;
+		//控制首页作品的最高显示高度为宽度的4倍.
+		imgHeight = imgHeight <= 300 ?  imgHeight : 300;
+		galleryHtml += `
+			<figure class="gallery-item animate-up animate-delay-${Math.floor(Math.random()*4)+1}">
+				<div class="img-wrapper" style="padding-bottom:${imgHeight}%;">
+					<img src="${gallery[galleryIndex].src}"/>
+				</div>
+			</figure>
+		`;
+		galleryIndex++;
 	};
 	if (galleryHtml) {
 		console.log(galleryHtml);
@@ -60,11 +77,10 @@ function getImages() {
 // 设置原图查看浮层
 function initOverlayout() {
 	//绑定点击事件
-	$('#gallery').on("click", "img", function(){
+	$('#gallery').on("click", ".img-wrapper", function(){
 		console.log($(this).attr("src"));
 		// 清除底部窗口的滚动
 		$('html').css("overflow", "hidden");
-		$('.details img').attr("src", $(this).attr("src"));
 		// 配置photoswipe插件
 		var pswpElement = document.querySelectorAll('.pswp')[0];
 		var imgIndex = $(this).parent().index();
@@ -80,8 +96,8 @@ function initOverlayout() {
 			showHideOpacity: false,
 			getThumbBoundsFn: function(index) {
 				console.log("index:" + index);
-				// 定位被点击的img
-				var thumbnail = $('.gallery-item').eq(index).children('img')[0];
+				// 定位被点击的img,[0]是一个DOM对象
+				var thumbnail = $('.gallery-item').eq(index).find('img')[0];
 				// 获取当前窗口的滚动位置
 				var scrollTop = $(window).scrollTop();
 				// 瀑布流数据时懒加载, 需要判断一下当前是否已经加载了弹窗收起时当前的img对象
@@ -137,17 +153,15 @@ $(function() {
 	// 配置原图查看功能
 	initOverlayout();
 
-	// 初始化瀑布流控件, 实用imagesLoaded插件保证图片被下载完成再进行布局
-	var masonryGrid = $('#gallery').imagesLoaded(function() {
-		console.log("imagesLoaded");
-		masonryGrid.masonry({
-			// options
-			itemSelector: '.gallery-item',
-			columnWidth: $('#gallery').find('.gallery-item')[0],
-			percentPosition: true,
-			horizontalOrder: false,
-			transitionDuration: 0
-		});
+	// 初始化瀑布流控件
+	var masonryGrid = $('#gallery').masonry({
+		// options
+		itemSelector: '.gallery-item',
+		columnWidth: $('#gallery').find('.gallery-item')[0],
+		percentPosition: true,
+		horizontalOrder: false,
+		resize: true,
+		transitionDuration: 0
 	});
 	
 	// 页面滚动到底加载新数据
@@ -156,13 +170,10 @@ $(function() {
 		var scrollHeight = $(document).height();
 		var windowHeight = $(this).outerHeight(true);
 		$('#log h1').text("scrollTop:" + scrollTop + ",scrollHeight" + scrollHeight + ",windowHeight" + windowHeight);
-		if(scrollTop + windowHeight + 100 >= scrollHeight) {
+		if(scrollTop + windowHeight + 400 >= scrollHeight) {
 			var imasonryItems = $(getImages());
 			masonryGrid.append(imasonryItems);
-			masonryGrid.imagesLoaded(function() {
-				masonryGrid.masonry('appended', imasonryItems);
-				console.log("新增完成");
-			});
+			masonryGrid.masonry('appended', imasonryItems);
 		}
 	})
 });

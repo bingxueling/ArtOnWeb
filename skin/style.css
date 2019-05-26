@@ -1,3 +1,91 @@
+
+/*样式库定义开始*/
+/*CSS变量定义, root必须始终置于第一位*/
+:root {
+    /*文字样式*/
+    --line-height-base: 1.2;
+    --letter-spacing-base: 0.04rem;
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-bold: 700;
+    --font-extra-bold: 800;
+
+    /*颜色板*/
+    /*一级颜色*/
+    --color-primary: #1E2025;
+    /*二级颜色*/
+    --color-primary-foreground: WHITE;
+    --color-primary-background: var(--color-primary);
+    /*三级颜色*/
+    --color-text-profile: var(--color-primary-foreground);
+    --color-text-logo: WHITE;
+}
+
+/*字体样式定义*/
+.title {
+    font-size: 2.4rem;
+    line-height: var(--line-height-base);
+    font-weight: var(--font-extra-bold);
+    letter-spacing: var(--letter-spacing-base);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    line-height: 1;
+    font-weight: var(--font-medium);
+    letter-spacing: var(--letter-spacing-base);
+}
+
+.text-body {
+    font-size: 1rem;
+    line-height: var(--line-height-base);
+    font-weight: var(--font-light);
+    letter-spacing: var(--letter-spacing-base);
+}
+
+.caption {
+    font-size: 0.8rem;
+    line-height: var(--line-height-base);
+    font-weight: var(--font-light);
+    letter-spacing: var(--letter-spacing-base);
+}
+
+/*动画样式定义, 从元素样式中分离以便复用*/
+
+/*作品加载动画, 向上浮动效果
+ *动画有延时, 所以需要在样式表中放置初始化状态，而不能在执行开始的时候
+ *forwards: 元素样式会停留在动画结束状态, 这会导致元素hover态无法改变transform属性
+ */
+.animate-up {
+    opacity: 0;
+    transform: translateY(80px);
+    -webkit-transform: translateY(80px);
+    animation: moveUp 0.65s ease forwards;
+    -webkit-animation: moveUp 0.65s ease forwards;
+}
+@keyframes moveUp {
+    0% {}
+    100% { transform: translateY(0); opacity: 1; }
+}
+@-webkit-keyframes moveUp {
+    0% {}
+    100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+.animate-delay-1 {
+    animation-delay:0.1s;
+}
+.animate-delay-2 {
+    animation-delay:0.2s;
+}
+.animate-delay-3 {
+    animation-delay:0.3s;
+}
+.animate-delay-4 {
+    animation-delay:0.4s;
+}
+/*样式库定义结束*/
 /*全局属性*/
 *{
     /*去除边距*/
@@ -8,7 +96,6 @@
 body, html {
     height:100%;
     font-size: 100%;
-    background-color: #F5F5F5;
 }
 
 /*日志*/
@@ -25,48 +112,49 @@ body, html {
 #profile {
     text-align: center;
     padding: 2rem 1rem;
-    background-color: #1E2025;
+    background-color: var(--color-primary-background);
 }
 
 #my-name {
-    color:#FFFFFF;
+    color: var(--color-text-profile);
     margin-bottom: 0.8rem;
 }
 
 #my-tag span{
-    color:#FFFFFF;
+    color: var(--color-text-profile);
     margin: 0.2rem 0.4rem;
     display: inline-block;
 }
 
 #my-phone {
     display: inline-block;
-    color:#FFFFFF;
+    color: var(--color-text-profile);
     text-decoration: none;
     margin-top: 2rem;
     transition: opacity .15s;
 }
 
 #my-phone:hover {
-    opacity:0.5;
-    /*filter: drop-shadow(0 0.8rem 0.4rem #000000);*/
+    opacity: 0.5;
 }
 
 #my-phone:active {
-    /*filter: none;*/
-    opacity:0.2;
+    opacity: 0.2;
 }
 
-#my-phone img {
+#my-phone svg {
+    width: 0.8rem;
     height: 0.8rem;
     vertical-align: baseline;
     margin-right: 0.1rem;
+    fill: currentColor;
 }
 
 /*作品展示*/
 #content {
     position: relative;
-    padding: 0.6rem 0.6rem;
+    padding: 0.6rem;
+    background-color: #F5F5F5;
 }
 
 #content .decoration {
@@ -75,42 +163,51 @@ body, html {
     left: 0;
     width: 100%;
     height: 12rem;
-    background-color: #1E2025;
+    background-color: var(--color-primary-background);
 }
 
-#gallery {
-    /*margin: 0 0.4rem;*/
-}
+#gallery {}
+
 .gallery-item {
+    /*width: calc(33.33% - 1.2rem);*/
     width: 33.33%;
-    /*max-height: 60rem;*/
     padding: 0.6rem;
-    /*overflow: hidden;*/
-    webkit-box-sizing: border-box;
-           box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
-.gallery-item img{
+.gallery-item .img-wrapper{
     width: 100%;
-    display: block;
     border-radius: 0.667rem;
     background-color: #E6E6E6;
-    transition: transform .15s, box-shadow .3s, filter .15s, ;
-    -webkit-transition: -webkit-transform .3s, box-shadow .3s, filter .3s;
-    /*border: 1px solid #dddddd;*/
-    /*box-shadow: 0 2px 6px #aaaaaa;*/
+    position: relative;
+    overflow: hidden;
+
+    /*元素状态变化动画*/
+    transition: transform .15s, box-shadow .3s, filter .15s;
+    -webkit-transition: -webkit-transform .15s, box-shadow .3s, filter .15s;
 }
 
-.gallery-item img:hover {
+.gallery-item .img-wrapper:hover {
     transform: translateY(-0.4rem);
     -webkit-transform: translateY(-0.4rem);
-    box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.4);
-    /*-webkit-filter: drop-shadow(0 0 4px 1 rgba(0, 0, 0, 0.5));*/
-    cursor:pointer;
+    box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
-.gallery-item img:active {
+.gallery-item .img-wrapper:active {
     filter: contrast(130%) brightness(0.5);
+}
+
+.gallery-item img {
+    /*消除inline造成的4px下边距*/
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 /*适配小窗口*/
@@ -149,7 +246,7 @@ body, html {
 }
 
 .logo-QR p{
-    color: #FFFFFF;
+    color: var(--color-text-logo);
     padding-bottom: 0.4rem;
 }
 
@@ -159,71 +256,8 @@ body, html {
 }
 
 .logo-name {
-    color: #FFFFFF;
+    color: var(--color-text-logo);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     -webkit-text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    cursor:help;
+    cursor: help;
 }
-
-/*字体样式定义*/
-.title {
-    font-size: 2.4rem;
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing:0.04rem;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    line-height: 1;
-    font-weight: 500;
-    letter-spacing:0.04rem;
-}
-
-.text-body {
-    font-size: 1rem;
-    line-height: 1.2;
-    font-weight: 300;
-    letter-spacing:0.04rem;
-}
-
-.caption {
-    font-size: 0.8rem;
-    line-height: 1.2;
-    font-weight: 400;
-    letter-spacing:0.04rem;
-}
-
-/*动画定义*/
-.animate-up {
-    /*动画有延时，所以需要在样式表中放置初始化状态，而不能在执行开始的时候*/
-    -webkit-transform: translateY(200px);
-    transform: translateY(80px);
-    opacity: 0;
-    -webkit-animation: moveUp 0.65s ease forwards;
-    animation: moveUp 0.65s ease forwards;
-}
-@-webkit-keyframes moveUp {
-    0% {}
-    100% { -webkit-transform: translateY(0); opacity: 1; }
-}
-
-@keyframes moveUp {
-    0% {}
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-.animate-delay-1 {
-    animation-delay:0.1s;
-}
-.animate-delay-2 {
-    animation-delay:0.2s;
-}
-.animate-delay-3 {
-    animation-delay:0.3s;
-}
-.animate-delay-4 {
-    animation-delay:0.4s;
-}
-
-

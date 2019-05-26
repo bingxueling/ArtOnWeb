@@ -9,7 +9,7 @@
 var myData = {
     "designer": {
         "name": "bingxueling",
-        "phone": "122-0987-3456",
+        "phone": "137-0987-3456",
         "tag": ["#视觉和交互设计专家", "#擅长数据分析", "#精通Android和Web开发"],
         "bg": "#CA1913"
     },
@@ -25,104 +25,9 @@ var myData = {
             "h": 900
         },
         {
-            "src": "myworks/003.png",
-            "w": 900,
-            "h": 2394
-        },
-        {
-            "src": "myworks/004.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/005.png",
-            "w": 512,
-            "h": 512
-        },
-        {
-            "src": "myworks/006.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/004.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/005.png",
-            "w": 512,
-            "h": 512
-        },
-        {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/005.png",
-            "w": 512,
-            "h": 512
-        },
-        {
-            "src": "myworks/006.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/006.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/004.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/006.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/001.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/001.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/006.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/001.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
         },
         {
             "src": "myworks/003.png",
@@ -150,6 +55,11 @@ var myData = {
             "h": 900
         },
         {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
+        },
+        {
             "src": "myworks/004.png",
             "w": 1440,
             "h": 900
@@ -158,6 +68,26 @@ var myData = {
             "src": "myworks/005.png",
             "w": 512,
             "h": 512
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/005.png",
+            "w": 512,
+            "h": 512
+        },
+        {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
+        },
+        {
+            "src": "myworks/006.png",
+            "w": 1440,
+            "h": 900
         },
         {
             "src": "myworks/002.png",
@@ -170,71 +100,6 @@ var myData = {
             "h": 900
         },
         {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/003.png",
-            "w": 900,
-            "h": 2394
-        },
-        {
-            "src": "myworks/004.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/005.png",
-            "w": 512,
-            "h": 512
-        },
-        {
-            "src": "myworks/006.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/004.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/005.png",
-            "w": 512,
-            "h": 512
-        },
-        {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/005.png",
-            "w": 512,
-            "h": 512
-        },
-        {
-            "src": "myworks/006.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/002.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
-            "src": "myworks/006.png",
-            "w": 1440,
-            "h": 900
-        },
-        {
             "src": "myworks/004.png",
             "w": 1440,
             "h": 900
@@ -243,6 +108,11 @@ var myData = {
             "src": "myworks/006.png",
             "w": 1440,
             "h": 900
+        },
+        {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
         },
         {
             "src": "myworks/001.png",
@@ -255,7 +125,7 @@ var myData = {
             "h": 900
         },
         {
-            "src": "myworks/001.png",
+            "src": "myworks/004.png",
             "w": 1440,
             "h": 900
         },
@@ -280,6 +150,11 @@ var myData = {
             "h": 2394
         },
         {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
+        },
+        {
             "src": "myworks/004.png",
             "w": 1440,
             "h": 900
@@ -308,6 +183,11 @@ var myData = {
             "src": "myworks/005.png",
             "w": 512,
             "h": 512
+        },
+        {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
         },
         {
             "src": "myworks/002.png",
@@ -355,6 +235,11 @@ var myData = {
             "h": 900
         },
         {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
+        },
+        {
             "src": "myworks/005.png",
             "w": 512,
             "h": 512
@@ -370,7 +255,7 @@ var myData = {
             "h": 512
         },
         {
-            "src": "myworks/006.png",
+            "src": "myworks/001.png",
             "w": 1440,
             "h": 900
         },
@@ -405,7 +290,7 @@ var myData = {
             "h": 900
         },
         {
-            "src": "myworks/001.png",
+            "src": "myworks/004.png",
             "w": 1440,
             "h": 900
         },
@@ -475,6 +360,121 @@ var myData = {
             "h": 900
         },
         {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
+        },
+        {
+            "src": "myworks/003.png",
+            "w": 900,
+            "h": 2394
+        },
+        {
+            "src": "myworks/004.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/005.png",
+            "w": 512,
+            "h": 512
+        },
+        {
+            "src": "myworks/006.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/004.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/005.png",
+            "w": 512,
+            "h": 512
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/005.png",
+            "w": 512,
+            "h": 512
+        },
+        {
+            "src": "myworks/001.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/006.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/004.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/006.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/001.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/004.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
+        },
+        {
+            "src": "myworks/006.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/001.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
             "src": "myworks/003.png",
             "w": 900,
             "h": 2394
@@ -515,6 +515,31 @@ var myData = {
             "h": 900
         },
         {
+            "src": "myworks/001.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/003.png",
+            "w": 900,
+            "h": 2394
+        },
+        {
+            "src": "myworks/004.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
+        },
+        {
             "src": "myworks/005.png",
             "w": 512,
             "h": 512
@@ -530,9 +555,44 @@ var myData = {
             "h": 900
         },
         {
+            "src": "myworks/004.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/005.png",
+            "w": 512,
+            "h": 512
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/005.png",
+            "w": 512,
+            "h": 512
+        },
+        {
+            "src": "myworks/001.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
+            "src": "myworks/002.png",
+            "w": 1440,
+            "h": 900
+        },
+        {
             "src": "myworks/006.png",
             "w": 1440,
             "h": 900
+        },
+        {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
         },
         {
             "src": "myworks/004.png",
@@ -555,7 +615,7 @@ var myData = {
             "h": 900
         },
         {
-            "src": "myworks/001.png",
+            "src": "myworks/004.png",
             "w": 1440,
             "h": 900
         },
@@ -598,6 +658,11 @@ var myData = {
             "src": "myworks/002.png",
             "w": 1440,
             "h": 900
+        },
+        {
+            "src": "myworks/007.png",
+            "w": 712,
+            "h": 3036
         },
         {
             "src": "myworks/004.png",
