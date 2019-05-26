@@ -73,16 +73,16 @@
 }
 
 .animate-delay-1 {
-    animation-delay:0.1s;
+    animation-delay: 0.1s;
 }
 .animate-delay-2 {
-    animation-delay:0.2s;
+    animation-delay: 0.2s;
 }
 .animate-delay-3 {
-    animation-delay:0.3s;
+    animation-delay: 0.3s;
 }
 .animate-delay-4 {
-    animation-delay:0.4s;
+    animation-delay: 0.4s;
 }
 /*样式库定义结束*/
 
@@ -94,7 +94,7 @@
 }
 
 body, html {
-    height:100%;
+    height: 100%;
     font-size: 100%;
 }
 
@@ -179,9 +179,9 @@ body, html {
 .gallery-item .img-wrapper{
     width: 100%;
     border-radius: 0.625rem;
-    background-color: #E6E6E6;
     position: relative;
     overflow: hidden;
+    background-color: #E6E6E6;
 
     /*元素状态变化动画*/
     transition: transform .15s, box-shadow .3s, filter .15s;
@@ -205,9 +205,7 @@ body, html {
     width: 100%;
     position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
 }
 
 /*适配小窗口*/
