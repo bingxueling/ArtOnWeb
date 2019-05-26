@@ -19,7 +19,7 @@ function getProfile() {
 	if (profile.name) {
 		profileHtml += `<h1 id="my-name" class="title">${profile.name}</h1>`;
 		// 修改页面的title
-		$('head title').text(profile.name + "-Art on web");
+		$('head title').text(profile.name + "-ArtOnWeb");
 	};
 	profileHtml += '<p id="my-tag" class="text-body">';
 	for (var i = 0; i < profile.tag.length; i++) {
@@ -40,12 +40,12 @@ function getProfile() {
 	};
 
 	if (profile.bg) {
-		//通过js修改styleSheets中:root的样式表
+		//通过js修改CSS样式表中的root样式表, root始终置于第一位
 		document.styleSheets[0].cssRules[0].style.setProperty('--color-primary-background', profile.bg);
 	};
 
 	if (profileHtml) {
-		console.log(profileHtml);
+		// console.log(profileHtml);
 		return profileHtml;
 	};
 }
@@ -57,8 +57,8 @@ function getImages() {
 	for (var i = 0; i < 6 && galleryIndex < galleryLength; i++) {
 		// 使用字符模板返回瀑布流单项, 动画延时采用随机算法, img的高度使用图片尺寸数据动态计算
 		var imgHeight = gallery[galleryIndex].h / gallery[galleryIndex].w * 100;
-		//控制首页作品的最高显示高度为宽度的4倍.
-		imgHeight = imgHeight <= 300 ?  imgHeight : 300;
+		//控制首页作品的最高显示高度为宽度的3倍.
+		imgHeight = imgHeight <= 300 ? imgHeight : 300;
 		galleryHtml += `
 			<figure class="gallery-item animate-up animate-delay-${Math.floor(Math.random()*4)+1}">
 				<div class="img-wrapper" style="padding-bottom:${imgHeight}%;">

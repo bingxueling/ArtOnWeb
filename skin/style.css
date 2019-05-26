@@ -52,7 +52,6 @@
 }
 
 /*动画样式定义, 从元素样式中分离以便复用*/
-
 /*作品加载动画, 向上浮动效果
  *动画有延时, 所以需要在样式表中放置初始化状态，而不能在执行开始的时候
  *forwards: 元素样式会停留在动画结束状态, 这会导致元素hover态无法改变transform属性
@@ -86,6 +85,7 @@
     animation-delay:0.4s;
 }
 /*样式库定义结束*/
+
 /*全局属性*/
 *{
     /*去除边距*/
@@ -178,7 +178,7 @@ body, html {
 
 .gallery-item .img-wrapper{
     width: 100%;
-    border-radius: 0.667rem;
+    border-radius: 0.625rem;
     background-color: #E6E6E6;
     position: relative;
     overflow: hidden;
@@ -241,7 +241,7 @@ body, html {
     text-align: center;
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 0.667rem;
+    border-radius: 0.625rem;
     margin-bottom: 0.8rem;
 }
 
@@ -251,8 +251,8 @@ body, html {
 }
 
 .logo-QR img {
-    width: 11.47rem;
-    height: 11.47rem;
+    width: 11rem;
+    height: 11rem;
 }
 
 .logo-name {
