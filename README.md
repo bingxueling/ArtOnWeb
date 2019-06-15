@@ -44,6 +44,9 @@ http://www.wulihub.com.cn/go/qgMrpQ/index.html
 [风穷的乐趣-3D打印作品展](http://www.wulihub.com.cn/go/JMBdEq/index.html)  
 [冰的摄影集](http://www.wulihub.com.cn/go/QKjOZW/index.html)  
 
+## 关注微信公众号，了解更多  
+![UIDesignScience](https://raw.githubusercontent.com/bingxueling/ArtOnWeb/master/skin/qrcode_UIDesignScience.jpg "wx_QRCode")  
+
 __©源码中"作品样图"仅用作样例展示，版权归原作者或所属公司__
 
 ---
