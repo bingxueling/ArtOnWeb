@@ -3,6 +3,7 @@
 /*CSS变量定义, root必须始终置于第一位*/
 :root {
     /*文字样式*/
+    --font-family-base: "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; 
     --line-height-base: 1.2;
     --letter-spacing-base: 0.04rem;
     --font-light: 300;
@@ -14,16 +15,20 @@
     /*颜色板*/
     /*一级颜色*/
     --color-primary: #1E2025;
+    --color-gray-100: #F5F5F5;
+    --color-gray-300: #E0E0E0;
     /*二级颜色*/
     --color-primary-foreground: WHITE;
     --color-primary-background: var(--color-primary);
     /*三级颜色*/
     --color-text-profile: var(--color-primary-foreground);
     --color-text-logo: WHITE;
+    --color-page-background: var(--color-gray-100);
 }
 
 /*字体样式定义*/
 .title {
+    font-family: var(--font-family-base);
     font-size: 2.4rem;
     line-height: var(--line-height-base);
     font-weight: var(--font-extra-bold);
@@ -31,6 +36,7 @@
 }
 
 .subtitle {
+    font-family: var(--font-family-base);
     font-size: 1.2rem;
     line-height: 1;
     font-weight: var(--font-medium);
@@ -38,6 +44,7 @@
 }
 
 .text-body {
+    font-family: var(--font-family-base);
     font-size: 1rem;
     line-height: var(--line-height-base);
     font-weight: var(--font-light);
@@ -45,6 +52,7 @@
 }
 
 .caption {
+    font-family: var(--font-family-base);
     font-size: 0.8rem;
     line-height: var(--line-height-base);
     font-weight: var(--font-light);
@@ -96,6 +104,7 @@
 body, html {
     height: 100%;
     font-size: 100%;
+    background-color: var(--color-page-background);
 }
 
 /*日志*/
@@ -105,6 +114,7 @@ body, html {
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.75);
+    color: WHITE;
     display: none;
 }
 
@@ -154,7 +164,7 @@ body, html {
 #content {
     position: relative;
     padding: 0.6rem;
-    background-color: #F5F5F5;
+    background-color: var(--color-page-background);
 }
 
 #content .decoration {
@@ -181,7 +191,7 @@ body, html {
     border-radius: 0.625rem;
     position: relative;
     overflow: hidden;
-    background-color: #E6E6E6;
+    background-color: var(--color-gray-300);
 
     /*元素状态变化动画*/
     transition: transform .15s, box-shadow .3s, filter .15s;
