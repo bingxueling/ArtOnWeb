@@ -45,7 +45,7 @@ http://www.wulihub.com.cn/go/qgMrpQ/index.html
 [冰的摄影集](http://www.wulihub.com.cn/go/QKjOZW/index.html)  
 
 ## 遇到问题？微信扫一下反馈
-![UIDesignScience](https://raw.githubusercontent.com/bingxueling/ArtOnWeb/master/skin/qrcode_UIDesignScience.jpg "wx_QRCode")  
+<img src="https://raw.githubusercontent.com/bingxueling/ArtOnWeb/master/skin/qrcode_UIDesignScience.jpg" width = "172" height = "172" alt="wx_QRCode" />  
 
 __©源码中"作品样图"仅用作样例展示，版权归原作者或所属公司__
 
