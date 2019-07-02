@@ -72,7 +72,8 @@ http://www.wulihub.com.cn/go/qgMrpQ/index.html
 [Free+Design-Collect free design tools and resources](http://www.wulihub.com.cn/go/WwB6pq/index.html)  
 [bingxueling'UI design](http://www.wulihub.com.cn/go/QoBGXW/index.html)  
 [YingFengYing'UI design](http://www.wulihub.com.cn/go/J6e58Q/index.html)  
-[Windy hobby-3D printing exhibition](http://www.wulihub.com.cn/go/JMBdEq/index.html)  
+[Windy hobby-3D printing exhibition](http://www.wulihub.com.cn/go/JMBdEq/index.html)
+
 [bing's photography](http://www.wulihub.com.cn/go/QKjOZW/index.html)  
 
 __©The "work sample" in the source code is only used as a sample display, and the copyright belongs to the original author or company.__
