@@ -11,6 +11,7 @@
             height:100%;
             font-size: 100%;
             padding: 0 0.5rem;
+            font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
         }
         input {
             width: 20rem;
@@ -36,6 +37,19 @@
             font-size: 1rem;
             margin-bottom: 1rem;
         }
+        #QA {
+            position: fixed;
+            bottom: 0.8rem;
+            right: 1.6rem;
+            text-align: center;
+        }
+        #QA p {
+            margin: 0;
+            font-size: 0.75rem;
+        }
+        #QA img {
+            width: 172px;
+        }
     </style> 
 </head>
 <body>
@@ -44,7 +58,7 @@
     <h4 class="warning"><p>注: 请确保属性格式正确,不需要的属性可省略</p><p>Note: Please ensure that the properties are formatted correctly and the unneeded properties can be omitted</p></h4>
     <p>你的名字 • Name：<input id="profile-name" name="name" type="text" placeholder="设计小超人"></p>
     <p>你的电话 • Phone：<input id="profile-phone" name="phone" type="text" placeholder="666-8888-8888"></p>
-    <p>标签(多标签用;隔开) • Tags(separated by ;)：<input id="profile-tag" name="tag" type="text" placeholder="#就是帅;#就是美;#切图嗖嗖快"></p>
+    <p>标签(多标签用英文 ; 隔开) • Tags(separated by ; )：<input id="profile-tag" name="tag" type="text" placeholder="#就是帅;#就是美;#切图嗖嗖快"></p>
     <p>信息区背景色 • Bg color of the information：<input id="profile-bg" name="bg" type="color" value="#1E2025"></p>
     <h2>2.将作品拖到下方虚线框中 • Drag the work to the dotted box below:</h2>
     <h4 class="warning"><p>注: 作品必须拷贝到"myworks"文件下, 支持png,jpge,gif</p><p>Note: The work must be copied to the "myworks" file, support png, jpge, gif</p></h4>
@@ -55,6 +69,10 @@
     <h4 class="warning"><p>注: "data.js"也要拷贝到"myworks"文件下</p><p>Note: "data.js" should also be copied to the "myworks" file</p></h4>
     <button id="profile-button" class="button" type="button"><p>生成"data.js"配置文件</p><p>Generate a "data.js" configuration file</p></button>
 </form> 
+<div id="QA">
+    <p class="text-body">遇到问题? 微信扫一下反馈</p>
+    <img src="skin/qrcode_UIDesignScience.jpg"/>
+</div>
 <!-- 引用库 -->
 <script type="text/javascript" charset="UTF-8" src="js/lib/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/lib/FileSaver.min.js"></script>

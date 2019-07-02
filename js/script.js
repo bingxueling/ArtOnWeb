@@ -8,7 +8,11 @@
 
 
 // 获取屏幕信息, 初始化图库索引及图片数
-var cw = $(window).width();
+var screenWidth = $(window).width();
+//记录页面宽度, 用于计算滚动条宽度
+var pageWidth = screenWidth;
+//滚动条宽度
+var scrollbarWidth = 0;
 var galleryIndex = 0;
 const galleryLength = myData.gallery.length;
 
@@ -41,7 +45,9 @@ function getProfile() {
 
 	if (profile.bg) {
 		//通过js修改CSS样式表中的root样式表, root始终置于第一位
-		document.styleSheets[0].cssRules[0].style.setProperty('--color-primary-background', profile.bg);
+		// 操作cssRules会触发COSR规则, chrome64后不支持本地执行, 修改主题暂时放弃此方式
+		// document.styleSheets[0].cssRules[0].style.setProperty('--color-primary-background', profile.bg);
+		$('#profile, #content .decoration').css("background-color", profile.bg);
 	};
 
 	if (profileHtml) {
@@ -58,6 +64,7 @@ function getImages() {
 		// 使用字符模板返回瀑布流单项, 动画延时采用随机算法, img的高度使用图片尺寸数据动态计算
 		var imgHeight = gallery[galleryIndex].h / gallery[galleryIndex].w * 100;
 		//控制首页作品的最高显示高度为宽度的3倍.
+		// imgHeight = imgHeight <= 300 ? imgHeight : 300;
 		imgHeight = imgHeight <= 300 ? imgHeight : 300;
 		galleryHtml += `
 			<figure class="gallery-item animate-up animate-delay-${Math.floor(Math.random()*4)+1}">
@@ -69,7 +76,7 @@ function getImages() {
 		galleryIndex++;
 	};
 	if (galleryHtml) {
-		console.log(galleryHtml);
+		// console.log(galleryHtml);
 		return galleryHtml;
 	};
 }
@@ -78,9 +85,10 @@ function getImages() {
 function initOverlayout() {
 	//绑定点击事件
 	$('#gallery').on("click", ".img-wrapper", function(){
-		console.log($(this).attr("src"));
-		// 清除底部窗口的滚动
+		console.log($(this).children("img").attr("src"));
+		// 清除底部窗口的滚动, 增加右padding保持页面稳定
 		$('html').css("overflow", "hidden");
+		$('html, #logo').css("padding-right", scrollbarWidth + "px");
 		// 配置photoswipe插件
 		var pswpElement = document.querySelectorAll('.pswp')[0];
 		var imgIndex = $(this).parent().index();
@@ -106,7 +114,7 @@ function initOverlayout() {
 					return {x:rect.left, y:rect.top + scrollTop, w:rect.width};
 				};
 				// 如果没有加载, 会返回一个向正下方缩小的动画
-				return {x:cw/2, y:$(document).height(), w:0};
+				return {x:screenWidth/2, y:$(document).height(), w:0};
 			},
 			//UI
 			zoomEl: false,
@@ -116,6 +124,7 @@ function initOverlayout() {
 		var pswpOverlayout = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, myData.gallery, options);
 		// 监听浮层关闭, 重新开启底部窗口滚动
 		pswpOverlayout.listen('close', function() {
+			$('html, #logo').css("padding-right", "");
 			$('html').css("overflow", "");
 		});
 		pswpOverlayout.init();
@@ -142,16 +151,10 @@ function initQRCode() {
 
 // 进行布局初始化, 加载第一波image和初始化瀑布流插件
 $(function() {
-	$('#log').append(`<h1>${cw}</h1>`);
-	//加载头部个人信息和第一波作品图
+	//加载头部个人信息
 	$('#profile').append(getProfile());
+	//加载第一批作品图
 	$('#gallery').append(getImages());
-
-	// 如果你不希望显示公众号浮层,可以注释掉这句
-	initQRCode();
-
-	// 配置原图查看功能
-	initOverlayout();
 
 	// 初始化瀑布流控件
 	var masonryGrid = $('#gallery').masonry({
@@ -163,17 +166,54 @@ $(function() {
 		resize: true,
 		transitionDuration: 0
 	});
+
+	//内部函数, 向瀑布流中增加新的作品
+	var appendMasonry = function() {
+		var galleryItem = getImages();
+		if (galleryItem) {
+			var imasonryItems = $(galleryItem);
+			masonryGrid.append(imasonryItems);
+			masonryGrid.masonry('appended', imasonryItems);
+			return true;
+		} else {
+			console.log("没有更多作品!");
+			return false;
+		};
+	}
+
+	//判断当第一批作品能否激活屏幕滚动, 若未激活则继续加载更多作品到屏幕可滚动为止, 为了防止死循环, 最多验证5次
+	var pageHeight = $(document).height();
+	var windowHeight = $(window).height();
+	console.log("pageHeight:" + pageHeight + ", windowHeight:" + windowHeight);
+	for(var i = 0; i < 5; i++ ) {
+		pageHeight = $(document).height();
+		console.log("首次加载检测, 第" + i + "次, 当前pageHeight:" + pageHeight);
+		//作品动画会影响页面高度的最终结果, 大概偏差70px, 故这里多增加100px的安全值
+		if (pageHeight > windowHeight + 100) {
+			break;
+		}
+		if (!appendMasonry()) {
+			break;
+		}
+	}
+
+	pageWidth = $(document).width();
+	scrollbarWidth = screenWidth - pageWidth;
+	$('#log').append(`<h2>屏幕宽: ${screenWidth}, 页面宽: ${pageWidth}</h2>`);
+
+	// 如果你不希望显示公众号浮层,可以注释掉这句
+	initQRCode();
+
+	// 配置原图查看功能
+	initOverlayout();
 	
 	// 页面滚动到底加载新数据
 	$(window).scroll(function() {
 		var scrollTop = $(this).scrollTop();
-		var scrollHeight = $(document).height();
-		var windowHeight = $(this).outerHeight(true);
-		$('#log h1').text("scrollTop:" + scrollTop + ",scrollHeight" + scrollHeight + ",windowHeight" + windowHeight);
-		if(scrollTop + windowHeight + 400 >= scrollHeight) {
-			var imasonryItems = $(getImages());
-			masonryGrid.append(imasonryItems);
-			masonryGrid.masonry('appended', imasonryItems);
+		pageHeight = $(document).height();
+		$('#log h1').text("scrollTop:" + scrollTop + ", pageHeight:" + pageHeight + ", windowHeight:" + windowHeight);
+		if(scrollTop + windowHeight + 400 >= pageHeight) {
+			appendMasonry();
 		}
 	})
 });
