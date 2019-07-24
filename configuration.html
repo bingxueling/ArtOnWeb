@@ -13,6 +13,20 @@
             padding: 0 0.5rem;
             font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
         }
+        .title {
+            margin: 0;
+            font-size: 1rem;
+            color: WHITE;
+            letter-spacing: 0.125rem;
+            text-decoration:none;
+        }
+        .caption {
+            margin: 0;
+            font-size: 0.75rem;
+            color: WHITE;
+            letter-spacing: 0.125rem;
+            text-decoration:none;
+        }
         input {
             width: 20rem;
             height: 2rem;
@@ -37,18 +51,36 @@
             font-size: 1rem;
             margin-bottom: 1rem;
         }
-        #QA {
+        #message {
             position: fixed;
             bottom: 0.8rem;
             right: 1.6rem;
             text-align: center;
         }
-        #QA p {
-            margin: 0;
-            font-size: 0.75rem;
+        #job {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            color: WHITE;
+            text-decoration:none;
+            background-color: #9933FF;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
         }
-        #QA img {
+        #job:hover {
+            background-color: #6600FF;
+        }
+
+        #qa {
+            width: 100%;
+            padding: 0.5rem;
+            background-color: #FF9933;
+            border-radius: 0.5rem;
+        }
+
+        #qa img {
             width: 172px;
+            margin-top: 0.5rem;
         }
     </style> 
 </head>
@@ -68,11 +100,19 @@
     <h2>3.保存配置文件 • Save configuration file:</h2>
     <h4 class="warning"><p>注: "data.js"也要拷贝到"myworks"文件下</p><p>Note: "data.js" should also be copied to the "myworks" file</p></h4>
     <button id="profile-button" class="button" type="button"><p>生成"data.js"配置文件</p><p>Generate a "data.js" configuration file</p></button>
-</form> 
-<div id="QA">
-    <p class="text-body">遇到问题? 微信扫一下反馈</p>
-    <img src="skin/qrcode_UIDesignScience.jpg"/>
+</form>
+
+<div id="message">
+    <a id="job" href="https://mp.weixin.qq.com/s/X0atx7UatHLZSZqONF2bnQ" target="_blank">
+        <p class="title">靠谱团队招人</p>
+        <p class="caption">小米、理想、Moka、脉脉</p>
+    </a>
+    <div id="qa">
+        <p class="caption">遇到问题? 微信扫一下反馈</p>
+        <img src="skin/qrcode_UIDesignScience.jpg"/>
+    </div>
 </div>
+
 <!-- 引用库 -->
 <script type="text/javascript" charset="UTF-8" src="js/lib/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/lib/FileSaver.min.js"></script>
