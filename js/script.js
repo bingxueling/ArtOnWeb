@@ -24,13 +24,13 @@ function getProfile() {
 		profileHtml += `<h1 id="my-name" class="title">${profile.name}</h1>`;
 		// 修改页面的title
 		$('head title').text(profile.name + "-ArtOnWeb");
-	};
+	}
 	profileHtml += '<p id="my-tag" class="text-body">';
 	for (var i = 0; i < profile.tag.length; i++) {
 		if (profile.tag[i]) {
 			profileHtml += `<span>${profile.tag[i]}</span>`;
-		};
-	};
+		}
+	}
 	profileHtml += '</p>';
 	// SVG内嵌到Html中, 可进行动态灌色
 	if (profile.phone) {
@@ -41,19 +41,19 @@ function getProfile() {
 				</svg>${profile.phone}
 			</a>
 		`;
-	};
+	}
 
 	if (profile.bg) {
 		//通过js修改CSS样式表中的root样式表, root始终置于第一位
 		// 操作cssRules会触发COSR规则, chrome64后不支持本地执行, 修改主题暂时放弃此方式
 		// document.styleSheets[0].cssRules[0].style.setProperty('--color-primary-background', profile.bg);
 		$('#profile, #content .decoration').css("background-color", profile.bg);
-	};
+	}
 
 	if (profileHtml) {
 		// console.log(profileHtml);
 		return profileHtml;
-	};
+	}
 }
 
 // 瀑布流列表获取image的方法, 返回6个标准的瀑布流项, 返回值为HTML标签字符串
@@ -64,7 +64,6 @@ function getImages() {
 		// 使用字符模板返回瀑布流单项, 动画延时采用随机算法, img的高度使用图片尺寸数据动态计算
 		var imgHeight = gallery[galleryIndex].h / gallery[galleryIndex].w * 100;
 		//控制首页作品的最高显示高度为宽度的3倍.
-		// imgHeight = imgHeight <= 300 ? imgHeight : 300;
 		imgHeight = imgHeight <= 300 ? imgHeight : 300;
 		galleryHtml += `
 			<figure class="gallery-item animate-up animate-delay-${Math.floor(Math.random()*4)+1}">
@@ -74,11 +73,11 @@ function getImages() {
 			</figure>
 		`;
 		galleryIndex++;
-	};
+	}
 	if (galleryHtml) {
 		// console.log(galleryHtml);
 		return galleryHtml;
-	};
+	}
 }
 
 // 设置原图查看浮层
@@ -112,7 +111,7 @@ function initOverlayout() {
 				if (thumbnail) {
 					rect = thumbnail.getBoundingClientRect();
 					return {x:rect.left, y:rect.top + scrollTop, w:rect.width};
-				};
+				}
 				// 如果没有加载, 会返回一个向正下方缩小的动画
 				return {x:screenWidth/2, y:$(document).height(), w:0};
 			},
@@ -179,7 +178,7 @@ $(function() {
 			console.log("没有更多作品!");
 			return false;
 		};
-	}
+	};
 
 	//判断当第一批作品能否激活屏幕滚动, 若未激活则继续加载更多作品到屏幕可滚动为止, 为了防止死循环, 最多验证5次
 	var pageHeight = $(document).height();
@@ -215,5 +214,5 @@ $(function() {
 		if(scrollTop + windowHeight + 400 >= pageHeight) {
 			appendMasonry();
 		}
-	})
+	});
 });
