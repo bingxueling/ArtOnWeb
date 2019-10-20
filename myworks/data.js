@@ -13,6 +13,10 @@ var myData = {
         "tag": ["#视觉和交互设计专家", "#擅长数据分析", "#精通Android和Web开发"],
         "bg": "#CA1913"
     },
+    "recommend":{
+        "contact": "137-0987-3456",
+        "city": "北京"
+    },
     "gallery": [
         {
             "src": "myworks/001.png",

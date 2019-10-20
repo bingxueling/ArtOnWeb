@@ -10,52 +10,107 @@
         body, html {
             height:100%;
             font-size: 100%;
-            padding: 0 0.5rem;
+            padding: 0;
             font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+            background: #FFFFFF;
         }
         .title {
-            margin: 0;
-            font-size: 1rem;
-            color: WHITE;
+            color: #3F3F3F;
+            font-size: 1.25rem;
             letter-spacing: 0.125rem;
-            text-decoration:none;
+            line-height: 1.5;
+            margin: 0.5rem 0 0.5rem 0;
+            padding: 0;
         }
-        .caption {
-            margin: 0;
+        .content {
+            color: #3F3F3F;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0.5rem 0 0.5rem 0;
+            padding: 0; 
+        }
+        .content:nth-child(3) {
+            margin-top: 1.5rem;
+        }
+        .description {
+            color: #7F7F7F;
             font-size: 0.75rem;
-            color: WHITE;
             letter-spacing: 0.125rem;
-            text-decoration:none;
+            line-height: 1.5;
+            margin: 0.5rem 0 0.5rem 0;
+            padding: 0;
+        }
+        .step {
+            width: 65%;
+            min-width: 40rem;
+            margin: 1rem;
+            padding: 1rem;
+            border: 1px solid #BFBFBF;
+            border-radius: 0.5rem;
         }
         input {
             width: 20rem;
-            height: 2rem;
+            height: 2.5rem;
+            font-size: 1rem;
             background-color: #FFFFFF;
             border: 1px solid #E5E5E5;
+            border-radius: 0.25rem;
+            margin-left: 1rem;
+            padding: 0.5rem;
+            box-sizing: border-box;
+        }
+        #profile-bg {
+            width: 5rem;
         }
         .drop-zone {
             width: 26rem;
             height: 14rem;
-            border: 4px dashed #2D3DE0;
+            border: 4px dashed #BFBFBF;
             overflow:auto;
+            border-radius: 0.25rem;
+            background-color: rgba(191,191,191,0.1);
+            padding: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .file-list {
+            margin: 0;
+        }
+        .file-list li {
+            margin: 0.5rem;
         }
         .file-list li img {
             width:6rem;
+            margin-right: 1rem;
         }
-        .warning {
-            color: #E9002C;
-        }
-        .button {
-            width: 20rem;
+        #profile-button {
+            min-width: 15rem;
             height: auto;
+            color: #FFFFFF;
             font-size: 1rem;
-            margin-bottom: 1rem;
+            padding: 0.5rem 3rem;
+            background-color: #5A00FF;
+            border-radius: 0.25rem;
+            border-width: 0;
+        }
+        #profile-button:hover {
+            background-color: #4700CC;
         }
         #message {
             position: fixed;
             bottom: 0.8rem;
             right: 1.6rem;
             text-align: center;
+        }
+        #message .title {
+            font-size: 1rem;
+            color: WHITE;
+            margin: 0;
+        }
+        #message .description {
+            margin: 0;
+            font-size: 0.75rem;
+            color: WHITE;
+            text-decoration:none;
         }
         #job {
             display: block;
@@ -68,7 +123,7 @@
             border-radius: 0.5rem;
         }
         #job:hover {
-            background-color: #0066CC;
+            background-color: #007ACC;
         }
 
         #job p {
@@ -78,7 +133,7 @@
         #qa {
             width: 100%;
             padding: 0.5rem;
-            background-color: #5a00ff;
+            background-color: #5A00FF;
             border-radius: 0.5rem;
         }
 
@@ -89,30 +144,50 @@
     </style> 
 </head>
 <body>
-<form>
-    <h2>1.配置个人信息区 • Personal Information:</h2>
-    <h4 class="warning"><p>注: 请确保属性格式正确,不需要的属性可省略</p><p>Note: Please ensure that the properties are formatted correctly and the unneeded properties can be omitted</p></h4>
-    <p>你的名字 • Name：<input id="profile-name" name="name" type="text" placeholder="设计小超人"></p>
-    <p>你的电话 • Phone：<input id="profile-phone" name="phone" type="text" placeholder="666-8888-8888"></p>
-    <p>标签(多标签用英文 ; 隔开) • Tags(separated by ; )：<input id="profile-tag" name="tag" type="text" placeholder="#就是帅;#就是美;#切图嗖嗖快"></p>
-    <p>信息区背景色 • Bg color of the information：<input id="profile-bg" name="bg" type="color" value="#1E2025"></p>
-    <h2>2.将作品拖到下方虚线框中 • Drag the work to the dotted box below:</h2>
-    <h4 class="warning"><p>注: 作品必须拷贝到"myworks"文件下, 支持png,jpge,gif</p><p>Note: The work must be copied to the "myworks" file, support png, jpge, gif</p></h4>
-    <div class="drop-zone">
-        <ol class="file-list"></ol>
+<form id="main">
+    <div id="step-1" class="step">
+        <h2 class="title">第1步：配置个人信息</h2>
+        <p class="description">只填写需要的信息即可</p>
+        <p class="content">我的名字<input id="profile-name" name="profile-name" type="text" placeholder="设计小超人"/></p>
+        <p class="content">我的电话<input id="profile-phone" name="profile-phone" type="text" placeholder="666-8888-8888"></p>
+        <p class="content">个人标签<input id="profile-tag" name="profile-tag" type="text" placeholder="#就是帅;#就是美;#切图嗖嗖快"><span class="description">（标签之间用英文;隔开）</span></p>
+        <p class="content">信息区背景色<input id="profile-bg" name="profile-bg" type="color" value="#1E2025"></p>
     </div>
-    <h2>3.保存配置文件 • Save configuration file:</h2>
-    <h4 class="warning"><p>注: "data.js"也要拷贝到"myworks"文件下</p><p>Note: "data.js" should also be copied to the "myworks" file</p></h4>
-    <button id="profile-button" class="button" type="button"><p>生成"data.js"配置文件</p><p>Generate a "data.js" configuration file</p></button>
+    <div id="step-2" class="step">
+        <h2 class="title">第2步：拷贝作品到源码里的myworks文件夹中</h2>
+        <p class="description">提前删除作品样图哦，支持png,jpge,gif</p>
+    </div>
+    <div id="step-3" class="step">
+        <h2 class="title">第3步：将myworks中的作品拖入下方虚线框中</h2>
+        <p class="description">获取作品信息，生成作品数据库</p>
+        <div class="drop-zone">
+            <ol class="file-list"></ol>
+        </div>
+    </div>
+    <div id="step-4" class="step">
+        <h2 class="title">第4步：帮我内推</h2>
+        <p class="description">如果有适合的职位，AOW开发者会联系你哦</p>
+        <p class="content">联系方式<input id="recommend-contact" name="recommend-contact" type="text" placeholder="电话、微信、邮箱等"></p>
+        <p class="content">工作城市<input id="recommend-city" name="recommend-city" type="text" placeholder="北京？上海？深圳？"></p>
+    </div>
+    <div id="step-5" class="step">
+        <h2 class="title">第5步：生成data.js配置文件，也拷贝到myworks文件夹中</h2>
+        <p class="description">文件名必须为"data.js"</p>
+        <button id="profile-button" type="button">生成配置文件</button>
+    </div>
+    <div id="step-final" class="step">
+        <h2 class="title">完成！用浏览器打开index.html预览吧</h2>
+        <p class="description">部署AOW可以使用WuliHub、GitHub等免费服务</p>
+    </div>
 </form>
 
 <div id="message">
     <a id="job" href="https://mp.weixin.qq.com/s/xnGx_oSX0qijUh5kj2qHwQ" target="_blank">
-        <p class="title">靠谱团队招人</p>
-        <p class="caption">小米、理想、快手、脉脉</p>
+        <p class="title">朋友团队招人</p>
+        <p class="description">小米、京东、快手、阿里</p>
     </a>
     <div id="qa">
-        <p class="caption">遇到问题? 微信扫一下反馈</p>
+        <p class="description">遇到问题? 微信扫一下反馈</p>
         <img src="skin/qrcode_UIDesignScience.jpg"/>
     </div>
 </div>
@@ -130,7 +205,7 @@
             console.log("drop");
             event.preventDefault();
             event.stopPropagation();
-            $(this).css("border", "");
+            $(this).css({"border":"", "background-color":""});
             var dataTransfer = event.originalEvent.dataTransfer;
             console.log(dataTransfer);
             if(dataTransfer && dataTransfer.files.length) {
@@ -154,13 +229,13 @@
             console.log("dragover");
             event.preventDefault();
             event.stopPropagation();
-            $(this).css("border", "4px dashed #E9002C")
+            $(this).css({"border":"4px dashed #5A00FF", "background-color":"rgba(90,0,255,0.2)"});
         });
         $(".drop-zone").on("dragleave", function (event) {
             console.log("dragleave");
             event.preventDefault();
             event.stopPropagation();
-            $(this).css("border", "");
+            $(this).css({"border":"", "background-color":""});
         });
         //绑定按钮点击
         $("#profile-button").on("click", function(){
@@ -174,7 +249,9 @@
                 };
             };
             var bg = $('#profile-bg').val();
-            var jsData = `var myData={designer:{name:'${name}',phone:'${phone}',tag:[${tag}],bg:'${bg}'},gallery:[${dataGallery}]}`;
+            var recommendContact = $('#recommend-contact').val();
+            var recommendCity = $('#recommend-city').val();
+            var jsData = `var myData={designer:{name:'${name}',phone:'${phone}',tag:[${tag}],bg:'${bg}'},recommend:{contact:'${recommendContact}',city:'${recommendCity}'},gallery:[${dataGallery}]}`;
             console.log(jsData);
             var jsFile = new File([jsData], "data.js", {type: "text/plain;charset=utf-8"});
             saveAs(jsFile);
